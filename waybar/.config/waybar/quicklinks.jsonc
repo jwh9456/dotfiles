@@ -16,7 +16,7 @@
   },
   "custom/quicklink4": {
     "format": "",
-    "on-click": "ghostty --command nvim",
+    "on-click": "ghostty -e nvim",
     "tooltip-format": "Neovim"
   },
   "custom/quicklink5": {
