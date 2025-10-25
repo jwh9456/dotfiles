@@ -9,7 +9,7 @@
       "urgent": "",
       "active": "",
       "default": ""
-    },
+    }
     // "persistent-workspaces": {
     //   "*": 5
     // }
@@ -99,8 +99,10 @@
   // Network
   "network": {
     "format": "{ifname}",
-    "format-wifi": "  {signalStrength}%  {bandwidthDownBytes}  {bandwidthUpBytes} ",
-    "format-ethernet": "   {bandwidthDownBytes}  {bandwidthUpBytes} ",
+    // "format-wifi": "  {signalStrength}%  {bandwidthDownBytes}  {bandwidthUpBytes} ",
+    "format-wifi": " ",
+    // "format-ethernet": "   {bandwidthDownBytes}  {bandwidthUpBytes} ",
+    "format-ethernet": " ",
     "format-disconnected": "󰲛 ",
     "tooltip-format": "  {ifname} via {gwaddri}",
     "tooltip-format-wifi": "   {essid} ({signalStrength}%)",
@@ -129,13 +131,13 @@
 
   // Bluetooth
   "bluetooth": {
-    "format": "{icon} {name}",
+    "format": " {icon}",
+    "format-connected": " {icon} {name}",
+    "format-disconnected": " {icon}",
+    // "tooltip-format": "{name}, {address}",
     "format-icons": {
-      "connected": "",
-      "disconnected": "",
-      "disabled": "",
-      "off": "",
-      "on": ""
+      "connected": "",
+      "disconnected": ""
     },
     "on-click": "blueman-manager",
     "interval": 30,
@@ -158,5 +160,10 @@
       "deactivated": ""
     },
     "on-click-right": "hyprlock"
+  },
+
+  "group/network": {
+    "orientation": "horizontal",
+    "modules": ["network","bluetooth"]
   }
 }

@@ -25,11 +25,10 @@
     "hyprland/workspaces"
   ],
   "modules-right": [
-    // "bluetooth",
-    // "network",
     // "mpd",
     "custom/notification",
     "custom/exit",
+    "group/network",
     "group/media",
     "group/hardware",
     "clock"
