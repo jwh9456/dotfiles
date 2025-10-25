@@ -3,16 +3,16 @@
   "hyprland/workspaces": {
     "on-click": "activate",
     "active-only": false,
-    "all-outputs": true,
+    // "all-outputs": true,
     "format": "{}",
     "format-icons": {
       "urgent": "",
       "active": "",
       "default": ""
     },
-    "persistent-workspaces": {
-      "*": 5
-    }
+    // "persistent-workspaces": {
+    //   "*": 5
+    // }
   },
 
   // Hyprland Window
@@ -86,7 +86,7 @@
 
   // Clock
   "clock": {
-    // "timezone": "America/New_York",
+    "timezone": "Asia/Seoul",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format": "󰥔 {0:%H:%M}",
     "format-alt": "󰥔 {0:%H:%M}   {0:%d-%m-%Y}"
@@ -129,10 +129,16 @@
 
   // Bluetooth
   "bluetooth": {
-    "format-disabled": "",
-    "format-off": "",
-    "interval": 30,
+    "format": "{icon} {name}",
+    "format-icons": {
+      "connected": "",
+      "disconnected": "",
+      "disabled": "",
+      "off": "",
+      "on": ""
+    },
     "on-click": "blueman-manager",
+    "interval": 30,
     "format-no-controller": ""
   },
 

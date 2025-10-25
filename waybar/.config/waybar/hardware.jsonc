@@ -1,23 +1,23 @@
 {
   "cpu": {
     "format": " {usage}%",
-    "on-click": "ghostty -e htop"
+    "on-click": "ghostty -e btop"
   },
 
   "memory": {
-    "format": " {}%",
-    "on-click": "ghostty -e htop"
+    "format": " {}%",
+    "on-click": "ghostty -e btop"
   },
 
   "disk": {
     "interval": 30,
-    "format": "D {percentage_used}% ",
+    "format": "{percentage_used}%",
     "path": "/",
-    "on-click": "ghostty -e htop"
+    "on-click": "ghostty -e btop"
   },
 
   "temperature": {
-    "format": "{icon} {temperatureC}°C",
+    "format": "{icon}{temperatureC}°C",
     "format-icons": ["", "", ""],
     "interval": 1,
     "critical-threshold": 80,
@@ -27,6 +27,6 @@
 
   "group/hardware": {
     "orientation": "horizontal",
-    "modules": ["cpu", "memory", "disc", "temperature"]
+    "modules": ["cpu", "memory", "disk", "temperature"]
   }
 }
