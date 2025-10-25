@@ -95,7 +95,7 @@ window#waybar.empty #window {
   border-radius: 999px;
   /* box-shadow: 0px 0px 8px 4px @shadow inset; */
   /* 좌우짤림 방지 */
-  padding: 0 10px;
+  padding: 0 0.5rem;
   color: @text;
   font: inherit;
   transition: all 50ms cubic-bezier(0.55, 0, 0.28, 1.682);
@@ -105,7 +105,7 @@ window#waybar.empty #window {
 #media,
 #hardware,
 #clock {
-  padding: 0 10px;
+  padding: 0 0.5rem;
 }
 
 #custom-quicklink1,
@@ -118,8 +118,9 @@ window#waybar.empty #window {
 #custom-quicklink8,
 #custom-quicklink9,
 #custom-quicklink10 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin: 0 0.5rem;
+  padding: 0 0.5rem;
 }
 #custom-quicklink1 {
   /* margin-left: 0; */
@@ -127,13 +128,16 @@ window#waybar.empty #window {
 
 #cpu,
 #memory,
-#disk {
-  padding-right: 1.5rem;
+#disk,
+#temperature {
+  /* padding-right: 1.5rem; */
+  padding: 0 0.5rem;
 }
 
 #custom-appmenu,
-#custom-notification {
-  font-size: 24px;
+#custom-notification,
+#group-network {
+  font-size: 1.5rem;
   min-width: 32px;
   min-height: 32px;
   border-radius: 999px;

@@ -3,7 +3,7 @@ clipboard-read = allow
 clipboard-write = allow
 copy-on-select = true
 window-subtitle = working-directory
-background-opacity = 0.8
+background-opacity = 0.5
 background-blur-radius = 10
 window-padding-x = 10,10
 window-padding-y = 10,10
@@ -35,4 +35,4 @@ palette = 15=#f5f5f5
 macos-option-as-alt = true
 auto-update = download
 auto-update-channel = stable
-keybind = global:cmd+grave_accent=toggle_quick_terminal%
+# keybind = global:cmd+grave_accent=toggle_quick_terminal%
