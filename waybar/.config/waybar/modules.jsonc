@@ -102,8 +102,8 @@
     // "format-wifi": "  {signalStrength}%  {bandwidthDownBytes}  {bandwidthUpBytes} ",
     "format-wifi": " ",
     // "format-ethernet": "   {bandwidthDownBytes}  {bandwidthUpBytes} ",
-    "format-ethernet": "󰈀 ",
-    "format-disconnected": "󰲛 ",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰲛",
     "tooltip-format": "󰈀 {ifname} via {gwaddri}",
     "tooltip-format-wifi": "  {essid} ({signalStrength}%)",
     "tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
@@ -131,7 +131,7 @@
 
   // Bluetooth
   "bluetooth": {
-    "format": " {icon}",
+    "format": "",
     "format-connected": "󰂱 {icon} {name}",
     "format-disconnected": "󰂲 {icon}",
     // "tooltip-format": "{name}, {address}",
