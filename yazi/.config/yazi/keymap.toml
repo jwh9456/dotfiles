@@ -1,0 +1,7 @@
+[[manager.prepend_keymap]]
+on = "y"
+run = [
+    'shell -- for path in "$@"; do wl-copy -t image/png < "$path"; done',
+    "yank",
+]
+desc = "Yank images to clipboard (Wayland)"
