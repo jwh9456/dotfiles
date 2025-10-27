@@ -18,7 +18,7 @@
   // Hyprland Window
   "hyprland/window": {
     "rewrite": {
-      "(.*) - Firefox": "$1",
+      "(.*) - Mozilla Firefox": "$1",
       "(.*) - Brave": "$1",
       "(.*) - Chromium": "$1",
       "(.*) - Brave Search": "$1",
@@ -41,7 +41,7 @@
   "custom/exit": {
     "format": "󰐥",
     "tooltip-format": "Powermenu",
-    "on-click": "wlogout -b 4",
+    "on-click": "wlogout",
     "tooltip": false
   },
 
@@ -102,10 +102,10 @@
     // "format-wifi": "  {signalStrength}%  {bandwidthDownBytes}  {bandwidthUpBytes} ",
     "format-wifi": " ",
     // "format-ethernet": "   {bandwidthDownBytes}  {bandwidthUpBytes} ",
-    "format-ethernet": " ",
+    "format-ethernet": "󰈀 ",
     "format-disconnected": "󰲛 ",
-    "tooltip-format": "  {ifname} via {gwaddri}",
-    "tooltip-format-wifi": "   {essid} ({signalStrength}%)",
+    "tooltip-format": "󰈀 {ifname} via {gwaddri}",
+    "tooltip-format-wifi": "  {essid} ({signalStrength}%)",
     "tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50,
@@ -132,12 +132,12 @@
   // Bluetooth
   "bluetooth": {
     "format": " {icon}",
-    "format-connected": " {icon} {name}",
-    "format-disconnected": " {icon}",
+    "format-connected": "󰂱 {icon} {name}",
+    "format-disconnected": "󰂲 {icon}",
     // "tooltip-format": "{name}, {address}",
     "format-icons": {
-      "connected": "",
-      "disconnected": ""
+      "connected": "󰂱",
+      "disconnected": "󰂲"
     },
     "on-click": "blueman-manager",
     "interval": 30,
@@ -156,8 +156,8 @@
     "format": "{icon}",
     "tooltip": true,
     "format-icons": {
-      "activated": "",
-      "deactivated": ""
+      "activated": "󰅶",
+      "deactivated": "󰛊"
     },
     "on-click-right": "hyprlock"
   },
