@@ -261,7 +261,7 @@ export PATH=/opt/homebrew/bin:$PATH
 
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-neofetch
+fastfetch -c ./configs/config-default.jsonc
 
 PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 
