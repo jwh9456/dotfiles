@@ -197,7 +197,7 @@ label:focus {
 }
 
 #tray menu {
-  background-color: black;
+  background-color: white;
   border-radius: 8px;
   opacity: 0.8;
   border: white 1px solid;
@@ -208,7 +208,8 @@ label:focus {
 #tray menu menuitem {
   padding-top: 3px;
   padding-bottom: 3px;
-
+  /* font color for white */
+  color: black;
   font-size: 22px;
 }
 
