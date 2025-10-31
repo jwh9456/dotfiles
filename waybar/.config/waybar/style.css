@@ -195,3 +195,19 @@ label:focus {
 #temperature.critical {
   color: red;
 }
+
+#tray menu {
+  background-color: black;
+  border-radius: 8px;
+  opacity: 0.8;
+  border: white 1px solid;
+  padding: 8px;
+  margin: 8 8px;
+}
+
+#tray menu menuitem {
+  padding-top: 3px;
+  padding-bottom: 3px;
+
+  font-size: 22px;
+}
