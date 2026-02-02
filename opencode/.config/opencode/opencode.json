@@ -19,5 +19,9 @@
     "todoread": "allow",
     "skill": "allow",
     "lsp": "allow"
+  },
+  "agent": {
+    "build": { "disable": true },
+    "plan": { "disable": true }
   }
 }
