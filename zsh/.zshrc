@@ -272,6 +272,7 @@ alias ovpn="sudo ssh ec2-user@43.203.234.96 -i ~/.ssh/prod-zentropy.pem"
 alias grafana="sudo ssh ubuntu@172.32.2.115 -i ~/.ssh/prod-zentropy.pem"
 alias vi="nvim"
 alias vim="nvim"
+alias oc="opencode"
 
 
 export ANDROID_HOME=/Users/zentropy/Library/Android/sdk
