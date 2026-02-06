@@ -1,21 +1,29 @@
 shell-integration = zsh
 clipboard-read = allow
 clipboard-write = allow
+
 copy-on-select = true
 window-subtitle = working-directory
+
 background-opacity = 0.5
 background-blur-radius = 10
+
 window-padding-x = 10,10
 window-padding-y = 10,10
+
 font-family = "0xProto Nerd Font"
 font-family = "Pretendard"
 theme = Afterglow
+
 background = #212121
 foreground = #d0d0d0
+
 selection-background = #303030
 selection-foreground = #d0d0d0
+
 cursor-color = #d0d0d0
 cursor-text = #151515
+
 palette = 0=#151515
 palette = 1=#ac4142
 palette = 2=#7e8e50
@@ -32,7 +40,8 @@ palette = 12=#6c99bb
 palette = 13=#9f4e85
 palette = 14=#7dd6cf
 palette = 15=#f5f5f5
+
 macos-option-as-alt = true
 auto-update = download
 auto-update-channel = stable
-keybind = global:cmd+grave_accent=toggle_quick_terminal%
+keybind = global:cmd+grave_accent=toggle_quick_terminal
