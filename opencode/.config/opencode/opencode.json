@@ -1,0 +1,28 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  // "plugin": ["opencode-gemini-auth@latest", "@plannotator/opencode@latest"],
+  "plugin": ["opencode-gemini-auth@latest"],
+  "formatter": {
+    "prettier": {
+      "extensions": [".js", ".ts", ".jsx", ".tsx"]
+    },
+    "ktlint": {
+      "extensions": [".kt", ".kts"]
+    },
+    "terraform": {
+      "extensions": [".tf", ".tfvars"]
+    }
+  },
+  "permission": {
+    "webfetch": "allow",
+    "question": "allow",
+    "todowrite": "allow",
+    "todoread": "allow",
+    "skill": "allow",
+    "lsp": "allow"
+  },
+  "agent": {
+    "build": { "disable": true },
+    "plan": { "disable": true }
+  }
+}
