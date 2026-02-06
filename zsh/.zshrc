@@ -25,7 +25,7 @@ ZSH_THEME="agnoster"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
@@ -261,7 +261,7 @@ export PATH=/opt/homebrew/bin:$PATH
 
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-fastfetch -c ./configs/config-default.jsonc
+fastfetch -c $HOME/.config/fastfetch/configs/config-default.jsonc --logo small
 
 PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 
@@ -270,6 +270,9 @@ alias devgunpo="sudo ssh -i ~/.ssh/dev-share.pem ubuntu@3.34.233.33"
 alias module="sudo ssh -i ~/.ssh/prod-zentropy.pem ubuntu@172.32.3.142"
 alias ovpn="sudo ssh ec2-user@43.203.234.96 -i ~/.ssh/prod-zentropy.pem"
 alias grafana="sudo ssh ubuntu@172.32.2.115 -i ~/.ssh/prod-zentropy.pem"
+alias vi="nvim"
+alias vim="nvim"
+
 
 export ANDROID_HOME=/Users/zentropy/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
@@ -278,5 +281,5 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 #source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 export TERM=xterm-256color
 export EDITOR=nvim
-
+export VISUAL=nvim
 . "$HOME/.local/bin/env"

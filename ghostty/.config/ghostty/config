@@ -35,4 +35,4 @@ palette = 15=#f5f5f5
 macos-option-as-alt = true
 auto-update = download
 auto-update-channel = stable
-# keybind = global:cmd+grave_accent=toggle_quick_terminal%
+keybind = global:cmd+grave_accent=toggle_quick_terminal%
