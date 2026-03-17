@@ -283,4 +283,5 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export TERM=xterm-256color
 export EDITOR=nvim
 export VISUAL=nvim
+alias cf="open -a Firefox 'https://order.ajdlabs.kr/order'"
 . "$HOME/.local/bin/env"
