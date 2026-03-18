@@ -1,5 +1,19 @@
 ---
 description: Specialized CodeRabbit code review agent that performs thorough analysis of code changes
+mode: primary
+# model: openai/gpt-5.1-codex-max-xhigh
+temperature: 0.1
+reasoningEffort: high
+# textVerbosity: low
+tools:
+  write: true
+  edit: true
+  bash: true
+  webfetch: true
+permission:
+  edit: deny
+  bash: allow
+  webfetch: allow
 capabilities:
   - Run comprehensive code reviews using CodeRabbit AI
   - Identify security vulnerabilities and best practice violations

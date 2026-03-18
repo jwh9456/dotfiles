@@ -21,6 +21,12 @@ Review code based on: **$ARGUMENTS**
 
 ### Prerequisites Check
 
+First check if `.coderabbit.yaml` exists in the repo. If it does, follow its instructions before running the review.
+
+Then check if CodeRabbit CLI is installed and authenticated:
+
+```bash
+
 **Skip these checks if you already verified them earlier in this session.**
 
 Otherwise, run:
@@ -67,8 +73,8 @@ Add `--base <branch>` if specified.
 
 Group findings by severity:
 
-1. **Critical** - Security, bugs
-2. **Suggestions** - Improvements
-3. **Positive** - What's good
+1. **Critical** - Security, bugs As P1
+2. **Suggestions** - Improvements As P2
+3. **Positive** - What's good As P3
 
 Offer to apply fixes if `codegenInstructions` are present.
