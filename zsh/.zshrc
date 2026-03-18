@@ -285,3 +285,6 @@ export EDITOR=nvim
 export VISUAL=nvim
 alias cf="open -a Firefox 'https://order.ajdlabs.kr/order'"
 . "$HOME/.local/bin/env"
+
+# Added by CodeRabbit CLI installer
+export PATH="/Users/jwh9456/.local/bin:$PATH"
