@@ -1,0 +1,61 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  // "plugin": ["opencode-gemini-auth@latest", "@plannotator/opencode@latest"],
+  "plugin": [
+    "opencode-gemini-auth@latest",
+    "opencode-notifier",
+    "opencode-worktree",
+  ],
+  "formatter": {
+    "prettier": {
+      "extensions": [".js", ".ts", ".jsx", ".tsx"],
+    },
+    "ktlint": {
+      "extensions": [".kt", ".kts"],
+    },
+    "terraform": {
+      "extensions": [".tf", ".tfvars"],
+    },
+  },
+  "permission": {
+    "webfetch": "allow",
+    "question": "allow",
+    "todowrite": "allow",
+    "todoread": "allow",
+    "skill": "allow",
+    "lsp": "allow",
+  },
+  "agent": {
+    "build": { "disable": true },
+    "plan": { "disable": true },
+  },
+  "mcp": {
+    "mcp-atlassian": {
+      "type": "local",
+      "command": [
+        "docker",
+        "run",
+        "--name",
+        "atlassian-mcp-server",
+        "-i",
+        "--rm",
+        "-e",
+        "JIRA_URL",
+        "-e",
+        "JIRA_USERNAME",
+        "-e",
+        "JIRA_API_TOKEN",
+        "ghcr.io/sooperset/mcp-atlassian:latest",
+      ],
+      "environment": {
+        "JIRA_URL": "https://ajnetworks.atlassian.net",
+        "JIRA_USERNAME": "whjeong@ajd.co.kr",
+        "JIRA_API_TOKEN": "--",
+      },
+    },
+    "datadog": {
+      "type": "remote",
+      "url": "https://mcp.datadoghq.com/api/unstable/mcp-server/mcp",
+    },
+  },
+}
