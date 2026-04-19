@@ -48,7 +48,7 @@ ENABLE_CORRECTION="true"
 # You can also set it to another string to have that shown instead of the default red dots.
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -256,8 +256,7 @@ fi
 #
 # To initialize zoxide, add this to your shell configuration file (usually ~/.zshrc):
 #
-# eval "$(zoxide init zsh)"
-
+eval "$(zoxide init zsh)"
 
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -269,12 +268,14 @@ export PATH=/opt/homebrew/bin:$PATH
 alias vi="nvim"
 alias vim="nvim"
 alias oc="opencode"
+alias cf="open -a Firefox 'https://order.ajdlabs.kr/order'"
 
 #source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 export TERM=xterm-256color
 export EDITOR=nvim
 export VISUAL=nvim
-alias cf="open -a Firefox 'https://order.ajdlabs.kr/order'"
+
+
 . "$HOME/.local/bin/env"
 
 # Added by CodeRabbit CLI installer
