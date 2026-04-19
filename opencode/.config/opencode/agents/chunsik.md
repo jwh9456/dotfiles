@@ -1,7 +1,7 @@
 ---
 description: Orchestrates the full development workflow from plan to quality gates
 mode: primary
-# model: anthropic/claude-opus-4-5
+# model: github-copilot/claude-opus-4.5
 temperature: 0.2
 reasoningEffort: high
 permission:
@@ -11,7 +11,6 @@ permission:
   todowrite: allow
   todoread: allow
   task:
-    "*": deny
     "mmoho": allow
     "architect": allow
     "editor": allow
