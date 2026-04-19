@@ -1,0 +1,6 @@
+{
+  "advisorModel": "openai/gpt-5.4",
+  "advisorSystem": null,
+  "maxAdvisorCalls": 10,
+  "debug": true
+}
