@@ -41,7 +41,8 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
+
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -74,8 +75,8 @@ plugins=(
     git
     fzf
     zoxide
-    zsh-autosuggestions
-    zsh-syntax-highlighting
+    # zsh-autosuggestions
+    # zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -257,28 +258,18 @@ fi
 #
 # eval "$(zoxide init zsh)"
 
-export PATH=/opt/homebrew/bin:$PATH
 
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 fastfetch -c $HOME/.config/fastfetch/configs/config-default.jsonc --logo small
 
-PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+export PATH=/opt/homebrew/bin:$PATH
 
-alias devqa="sudo ssh -i ~/.ssh/dev-share.pem ubuntu@172.33.2.184"
-alias devgunpo="sudo ssh -i ~/.ssh/dev-share.pem ubuntu@3.34.233.33"
-alias module="sudo ssh -i ~/.ssh/prod-zentropy.pem ubuntu@172.32.3.142"
-alias ovpn="sudo ssh ec2-user@43.203.234.96 -i ~/.ssh/prod-zentropy.pem"
-alias grafana="sudo ssh ubuntu@172.32.2.115 -i ~/.ssh/prod-zentropy.pem"
 alias vi="nvim"
 alias vim="nvim"
 alias oc="opencode"
 
-
-export ANDROID_HOME=/Users/zentropy/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 #source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 export TERM=xterm-256color
 export EDITOR=nvim
@@ -288,3 +279,8 @@ alias cf="open -a Firefox 'https://order.ajdlabs.kr/order'"
 
 # Added by CodeRabbit CLI installer
 export PATH="/Users/jwh9456/.local/bin:$PATH"
+
+prompt_context() {}
+prompt_dir() {
+    prompt_segment blue $CURRENT_FG '%2~'                                                          
+}
