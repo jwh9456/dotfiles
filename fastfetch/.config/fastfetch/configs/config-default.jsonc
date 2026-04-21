@@ -22,14 +22,6 @@
       "type": "os",
     },
     {
-      "key": "│ {#35} kernel  {#keys}│",
-      "type": "kernel",
-    },
-    {
-      "key": "│ {#36} wm      {#keys}│",
-      "type": "wm",
-    },
-    {
       "key": "│ {#36}󰇄 desktop {#keys}│",
       "type": "de",
     },
