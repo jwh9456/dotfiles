@@ -123,14 +123,14 @@ export EDITOR=nvim
 export VISUAL=nvim
 
 
-. "$HOME/.local/bin/env"
+# . "$HOME/.local/bin/env"
 
 # Added by CodeRabbit CLI installer
-export PATH="/Users/jwh9456/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 prompt_context() {}
 prompt_dir() {
-    prompt_segment blue $CURRENT_FG '%2~'                                                          
+    prompt_segment blue $CURRENT_FG '%2~'
 }
 
 source "$HOME/.zshrc.zoxide"
