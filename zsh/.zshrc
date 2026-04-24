@@ -116,6 +116,7 @@ alias vi="nvim"
 alias vim="nvim"
 alias oc="opencode"
 alias cf="open -a Firefox 'https://order.ajdlabs.kr/order'"
+alias lg="lazygit"
 
 #source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 export TERM=xterm-256color
