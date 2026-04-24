@@ -108,7 +108,7 @@ source $ZSH/oh-my-zsh.sh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-fastfetch -c $HOME/.config/fastfetch/configs/config-default.jsonc --logo small
+fastfetch -c $HOME/.config/fastfetch/configs/config-default.jsonc
 
 export PATH=/opt/homebrew/bin:$PATH
 
