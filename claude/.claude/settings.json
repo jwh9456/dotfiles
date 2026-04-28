@@ -7,5 +7,5 @@
     "command": "bash /Users/jwh9456/.claude/statusline-command.sh"
   },
   "effortLevel": "high",
-  "skipAutoPermissionPrompt": true
+  "teammateMode": "tmux"
 }
