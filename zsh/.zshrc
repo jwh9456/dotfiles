@@ -135,3 +135,4 @@ prompt_dir() {
 }
 
 source "$HOME/.zshrc.zoxide"
+export XDG_CONFIG_HOME="$HOME/.config"
