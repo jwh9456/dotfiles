@@ -58,6 +58,7 @@ return {
         timeout_ms = 3000,
         score_offset = 50,
       }
+      opts.completion = { trigger = { prefetch_on_insert = false } }
     end,
   },
 }
