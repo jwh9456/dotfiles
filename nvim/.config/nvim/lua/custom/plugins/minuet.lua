@@ -11,7 +11,7 @@ require('minuet').setup {
   provider_options = {
     openai_compatible = {
       name = 'ollama-cloud',
-      model = 'nemotron-3-nano:30b',
+      model = 'qwen3-coder-next',
       end_point = 'https://ollama.com/v1/chat/completions',
       api_key = 'OLLAMA_API_KEY',
       stream = true,
@@ -21,7 +21,7 @@ require('minuet').setup {
     },
     openai_fim_compatible = {
       name = 'ollama-cloud',
-      model = 'nemotron-3-nano:30b',
+      model = 'qwen3-coder-next',
       end_point = 'https://ollama.com/v1/completions',
       api_key = 'OLLAMA_API_KEY',
       stream = true,
@@ -35,7 +35,7 @@ require('minuet').setup {
     provider_options = {
       openai_compatible = {
         name = 'ollama-cloud',
-        model = 'nemotron-3-nano:30b',
+        model = 'qwen3-coder-next',
         end_point = 'https://ollama.com/v1/chat/completions',
         api_key = 'OLLAMA_API_KEY',
         optional = {
@@ -44,7 +44,7 @@ require('minuet').setup {
       },
     },
   },
-  virtualtext = {},
+  virtualtext = { auto_trigger_ft = { '*' } },
 }
 
 return {}
