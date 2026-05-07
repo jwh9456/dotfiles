@@ -11,8 +11,18 @@ require('minuet').setup {
   provider_options = {
     openai_compatible = {
       name = 'ollama-cloud',
-      model = 'deepseek-v4-flash',
+      model = 'qwen3-coder-next',
       end_point = 'https://ollama.com/v1/chat/completions',
+      api_key = 'OLLAMA_API_KEY',
+      stream = true,
+      optional = {
+        reasoning_effort = 'none',
+      },
+    },
+    openai_fim_compatible = {
+      name = 'ollama-cloud',
+      model = 'qwen3-coder-next',
+      end_point = 'https://ollama.com/v1/completions',
       api_key = 'OLLAMA_API_KEY',
       stream = true,
       optional = {
@@ -25,7 +35,7 @@ require('minuet').setup {
     provider_options = {
       openai_compatible = {
         name = 'ollama-cloud',
-        model = 'deepseek-v4-flash',
+        model = 'qwen3-coder-next',
         end_point = 'https://ollama.com/v1/chat/completions',
         api_key = 'OLLAMA_API_KEY',
         optional = {
@@ -34,6 +44,7 @@ require('minuet').setup {
       },
     },
   },
+  virtualtext = { auto_trigger_ft = { '*' } },
 }
 
 return {
