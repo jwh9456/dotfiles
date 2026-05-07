@@ -33,6 +33,7 @@ require('which-key').setup {
     { '<leader>f', group = 'file/find' },
     { '<leader>g', group = 'git' },
     { '<leader>h', group = 'git hunk', mode = { 'n', 'v' } },
+    { '<leader>m', group = 'minimap' },
     { '<leader>q', group = 'quit/session' },
     { '<leader>r', group = 'run' },
     { '<leader>s', group = 'search', mode = { 'n', 'v' } },
