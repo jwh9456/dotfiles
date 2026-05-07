@@ -14,10 +14,10 @@ if not root_dir then return end
 
 local project_name = vim.fn.fnamemodify(root_dir, ':p:h:t')
 local workspace_dir = vim.fn.stdpath 'data' .. '/jdtls-workspace/' .. project_name
-local jdtls_cmd = vim.fn.stdpath 'data' .. '/mason/bin/jdtls'
+local jdtls_cmd = 'jdtls'
 
 if vim.fn.executable(jdtls_cmd) ~= 1 then
-  vim.notify('jdtls is not installed. Run :MasonInstall jdtls or restart Neovim for mason-tool-installer.', vim.log.levels.WARN)
+  vim.notify('jdtls is not installed. Run brew install jdtls.', vim.log.levels.WARN)
   return
 end
 
