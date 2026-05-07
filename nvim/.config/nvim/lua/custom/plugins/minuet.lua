@@ -7,12 +7,22 @@ vim.pack.add {
 require('minuet').setup {
   notify = 'warn',
   request_timeout = 10,
-  provider = 'openai_compatible',
+  provider = 'openai_fim_compatible',
   provider_options = {
     openai_compatible = {
       name = 'ollama-cloud',
-      model = 'deepseek-v4-flash',
+      model = 'nemotron-3-nano:30b',
       end_point = 'https://ollama.com/v1/chat/completions',
+      api_key = 'OLLAMA_API_KEY',
+      stream = true,
+      optional = {
+        reasoning_effort = 'none',
+      },
+    },
+    openai_fim_compatible = {
+      name = 'ollama-cloud',
+      model = 'nemotron-3-nano:30b',
+      end_point = 'https://ollama.com/v1/completions',
       api_key = 'OLLAMA_API_KEY',
       stream = true,
       optional = {
@@ -25,7 +35,7 @@ require('minuet').setup {
     provider_options = {
       openai_compatible = {
         name = 'ollama-cloud',
-        model = 'deepseek-v4-flash',
+        model = 'nemotron-3-nano:30b',
         end_point = 'https://ollama.com/v1/chat/completions',
         api_key = 'OLLAMA_API_KEY',
         optional = {
@@ -34,31 +44,7 @@ require('minuet').setup {
       },
     },
   },
+  virtualtext = {},
 }
 
-return {
-  blink = {
-    keymap = {
-      ['<A-y>'] = {
-        function(cmp) cmp.show { providers = { 'minuet' } } end,
-      },
-    },
-    sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer', 'minuet' },
-      providers = {
-        minuet = {
-          name = 'minuet',
-          module = 'minuet.blink',
-          async = true,
-          timeout_ms = 3000,
-          score_offset = 50,
-        },
-      },
-    },
-    completion = {
-      trigger = {
-        prefetch_on_insert = false,
-      },
-    },
-  },
-}
+return {}
