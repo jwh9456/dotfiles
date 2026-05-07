@@ -21,3 +21,14 @@ yay -S --noconfirm zoxide
 # configure zoxide hooks
 echo 'eval "$(zoxide init zsh --hook cd)"' >> ~/.zshrc
 
+# configure tmux
+stow -v -R tmux
+
+TMUX_CATPPUCCIN_DIR="$HOME/.config/tmux/plugins/catppuccin/tmux"
+if [ -d "$TMUX_CATPPUCCIN_DIR/.git" ]; then
+  git -C "$TMUX_CATPPUCCIN_DIR" fetch --tags
+  git -C "$TMUX_CATPPUCCIN_DIR" checkout v2.3.0
+else
+  rm -rf "$TMUX_CATPPUCCIN_DIR"
+  git clone -b v2.3.0 https://github.com/catppuccin/tmux.git "$TMUX_CATPPUCCIN_DIR"
+fi
