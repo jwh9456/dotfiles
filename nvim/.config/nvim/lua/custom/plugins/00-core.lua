@@ -62,6 +62,11 @@ map.setup {
   },
 }
 
+vim.keymap.set('n', '<leader>mm', function() map.toggle() end, { desc = 'Toggle minimap' })
+vim.keymap.set('n', '<leader>mo', function() map.open() end, { desc = 'Open minimap' })
+vim.keymap.set('n', '<leader>mc', function() map.close() end, { desc = 'Close minimap' })
+vim.keymap.set('n', '<leader>mr', function() map.refresh() end, { desc = 'Refresh minimap' })
+
 vim.api.nvim_create_autocmd('VimEnter', {
   callback = function() map.open() end,
 })
