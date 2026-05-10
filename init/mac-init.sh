@@ -18,6 +18,10 @@ brew install fzf
 # install zoxide
 brew install zoxide
 
+# install input method switcher for Neovim
+brew tap laishulu/homebrew
+brew install macism
+
 # configure zoxide hooks
 echo 'eval "$(zoxide init zsh --hook cd)"' >> ~/.zshrc
 
