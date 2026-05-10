@@ -14,13 +14,96 @@ set ignorecase
 set smartcase
 set number
 set scrolloff=10
-set timeoutlen=300
 set ideajoin
+set notimeout
+set timeoutlen=5000
+set keep-english-in-normal-and-restore-in-insert
 
 " Built-in IdeaVim plugins. Safe no-ops when a plugin is unavailable.
+set which-key
 set commentary
 set surround
 set multiple-cursors
+
+" which-key plugin settings. The plugin has to be installed in the IDE.
+let g:WhichKey_DefaultDelay = 200
+let g:WhichKey_ProcessUnknownMappings = "false"
+let g:WhichKey_ShowTypedSequence = "true"
+let g:WhichKey_ShowVimActions = "false"
+
+" Keep Space available only as a leader prefix instead of its default Vim motion.
+nnoremap <Space> <Nop>
+xnoremap <Space> <Nop>
+
+" which-key labels
+let g:WhichKeyDesc_find_files = "<leader><Space> Files"
+let g:WhichKeyDesc_find = "<leader>/ Find"
+let g:WhichKeyDesc_explorer = "<leader>e Explorer toggle"
+let g:WhichKeyDesc_explorer_select = "<leader>E Select in project"
+let g:WhichKeyDesc_windows = "<leader>w Windows"
+let g:WhichKeyDesc_windows_delete = "<leader>wd Close split"
+let g:WhichKeyDesc_windows_next = "<leader>ww Next split"
+let g:WhichKeyDesc_windows_previous = "<leader>wW Previous split"
+let g:WhichKeyDesc_windows_left = "<leader>wh Left split"
+let g:WhichKeyDesc_windows_down = "<leader>wj Lower split"
+let g:WhichKeyDesc_windows_up = "<leader>wk Upper split"
+let g:WhichKeyDesc_windows_right = "<leader>wl Right split"
+let g:WhichKeyDesc_buffers = "<leader>b Buffers"
+let g:WhichKeyDesc_buffers_close = "<leader>bd Close file"
+let g:WhichKeyDesc_buffers_recent = "<leader>bb Recent files"
+let g:WhichKeyDesc_tabs = "<leader><Tab> Tabs"
+let g:WhichKeyDesc_tabs_previous = "<leader><Tab>[ Previous tab"
+let g:WhichKeyDesc_tabs_next = "<leader><Tab>] Next tab"
+let g:WhichKeyDesc_tabs_close = "<leader><Tab>d Close tab"
+let g:WhichKeyDesc_search = "<leader>s Search"
+let g:WhichKeyDesc_search_files = "<leader>sf Files"
+let g:WhichKeyDesc_search_text = "<leader>sg Text"
+let g:WhichKeyDesc_search_word = "<leader>sw Usages"
+let g:WhichKeyDesc_search_recent = "<leader>s. Recent files"
+let g:WhichKeyDesc_search_actions = "<leader>sc Actions"
+let g:WhichKeyDesc_search_help = "<leader>sh Help"
+let g:WhichKeyDesc_search_symbols = "<leader>sS Symbols"
+let g:WhichKeyDesc_code = "<leader>c Code"
+let g:WhichKeyDesc_code_format = "<leader>cf Format"
+let g:WhichKeyDesc_code_diagnostics = "<leader>cd Diagnostics"
+let g:WhichKeyDesc_git = "<leader>g Git"
+let g:WhichKeyDesc_git_status = "<leader>gg LazyGit"
+let g:WhichKeyDesc_git_status_current = "<leader>gG LazyGit cwd"
+let g:WhichKeyDesc_git_log = "<leader>gl File history"
+let g:WhichKeyDesc_git_blame = "<leader>gb Annotate"
+let g:WhichKeyDesc_git_copy_path = "<leader>gB Copy path"
+let g:WhichKeyDesc_git_copy_reference = "<leader>gY Copy reference"
+let g:WhichKeyDesc_run = "<leader>r Run"
+let g:WhichKeyDesc_run_run = "<leader>rr Run"
+let g:WhichKeyDesc_run_config = "<leader>ra Configurations"
+let g:WhichKeyDesc_run_tool = "<leader>rt Run window"
+let g:WhichKeyDesc_debug = "<leader>d Debug"
+let g:WhichKeyDesc_debug_breakpoint = "<leader>db Toggle breakpoint"
+let g:WhichKeyDesc_files = "<leader>f Files"
+let g:WhichKeyDesc_files_terminal = "<leader>ft Terminal"
+let g:WhichKeyDesc_files_new = "<leader>fn New"
+let g:WhichKeyDesc_quit = "<leader>q Quit"
+let g:WhichKeyDesc_quit_exit = "<leader>qq Exit IDE"
+
+" -----------------------------------------------------------------------------
+" Flash-like navigation
+" Requires the vim-flash IDE plugin.
+" -----------------------------------------------------------------------------
+nnoremap s :action flash.search<CR>
+xnoremap s :action flash.search<CR>
+
+nnoremap f :action flash.find<CR>
+xnoremap f :action flash.find<CR>
+nnoremap F :action flash.find_backward<CR>
+xnoremap F :action flash.find_backward<CR>
+nnoremap t :action flash.till<CR>
+xnoremap t :action flash.till<CR>
+nnoremap T :action flash.till_backward<CR>
+xnoremap T :action flash.till_backward<CR>
+nnoremap ; :action flash.repeat<CR>
+xnoremap ; :action flash.repeat<CR>
+nnoremap , :action flash.repeat_backward<CR>
+xnoremap , :action flash.repeat_backward<CR>
 
 " -----------------------------------------------------------------------------
 " Movement / editing
@@ -52,100 +135,105 @@ nnoremap N Nzzzv
 " -----------------------------------------------------------------------------
 " Windows / tabs / tool windows
 " -----------------------------------------------------------------------------
-nnoremap <leader>- <Action>(SplitHorizontally)
-nnoremap <leader><Bar> <Action>(SplitVertically)
-nnoremap <leader>wd <Action>(Unsplit)
-nnoremap <leader>ww <C-w>w
+nnoremap <leader>- :action SplitHorizontally<CR>
+nnoremap <leader><Bar> :action SplitVertically<CR>
+nnoremap <leader>wd :action Unsplit<CR>
+nnoremap <leader>ww :action NextSplitter<CR>
+nnoremap <leader>wW :action PrevSplitter<CR>
+nnoremap <leader>wh <C-w>h
+nnoremap <leader>wj <C-w>j
+nnoremap <leader>wk <C-w>k
+nnoremap <leader>wl <C-w>l
 
-nnoremap <S-h> <Action>(PreviousTab)
-nnoremap <S-l> <Action>(NextTab)
-nnoremap [b <Action>(PreviousTab)
-nnoremap ]b <Action>(NextTab)
-nnoremap <leader>bd <Action>(CloseContent)
-nnoremap <leader>bD <Action>(CloseContent)
-nnoremap <leader>bb <Action>(RecentFiles)
-nnoremap <leader><leader> <Action>(Switcher)
+nnoremap <S-h> :action PreviousTab<CR>
+nnoremap <S-l> :action NextTab<CR>
+nnoremap [b :action PreviousTab<CR>
+nnoremap ]b :action NextTab<CR>
+nnoremap <leader>bd :action CloseContent<CR>
+nnoremap <leader>bD :action CloseContent<CR>
+nnoremap <leader>bb :action RecentFiles<CR>
+nnoremap <leader><Space> :action GotoFile<CR>
 
-nnoremap <leader><Tab>[ <Action>(PreviousTab)
-nnoremap <leader><Tab>] <Action>(NextTab)
-nnoremap <leader><Tab>d <Action>(CloseContent)
+nnoremap <leader><Tab>[ :action PreviousTab<CR>
+nnoremap <leader><Tab>] :action NextTab<CR>
+nnoremap <leader><Tab>d :action CloseContent<CR>
 
 " Explorer: mirrors <leader>e / backslash from neo-tree.
-nnoremap <leader>e <Action>(ActivateProjectToolWindow)
-nnoremap <leader>E <Action>(SelectInProjectView)
-nnoremap \ <Action>(SelectInProjectView)
+nnoremap <leader>e :action ActivateProjectToolWindow<CR>
+nnoremap <leader>E :action SelectInProjectView<CR>
+nnoremap \ :action SelectInProjectView<CR>
 
 " -----------------------------------------------------------------------------
 " Search group: mirrors Telescope mappings with IntelliJ actions.
 " -----------------------------------------------------------------------------
-nnoremap <leader>sf <Action>(GotoFile)
-nnoremap <leader>ss <Action>(GotoFile)
-nnoremap <leader>sg <Action>(FindInPath)
-nnoremap <leader>sw <Action>(FindUsages)
-xnoremap <leader>sw <Action>(FindUsages)
-nnoremap <leader>s. <Action>(RecentFiles)
-nnoremap <leader>sc <Action>(GotoAction)
-nnoremap <leader>sk <Action>(GotoAction)
-nnoremap <leader>sh <Action>(HelpTopics)
-nnoremap <leader>sS <Action>(GotoSymbol)
-nnoremap <leader>/ <Action>(Find)
-nnoremap <leader>s/ <Action>(FindInPath)
+nnoremap <leader>sf :action GotoFile<CR>
+nnoremap <leader>ss :action GotoFile<CR>
+nnoremap <leader>sg :action FindInPath<CR>
+nnoremap <leader>sw :action FindUsages<CR>
+xnoremap <leader>sw :action FindUsages<CR>
+nnoremap <leader>s. :action RecentFiles<CR>
+nnoremap <leader>sc :action GotoAction<CR>
+nnoremap <leader>sk :action GotoAction<CR>
+nnoremap <leader>sh :action HelpTopics<CR>
+nnoremap <leader>sS :action GotoSymbol<CR>
+nnoremap <leader>/ :action Find<CR>
+nnoremap <leader>s/ :action FindInPath<CR>
 
 " -----------------------------------------------------------------------------
 " Code / LSP-like navigation
 " -----------------------------------------------------------------------------
-nnoremap grd <Action>(GotoDeclaration)
-nnoremap grD <Action>(GotoTypeDeclaration)
-nnoremap grr <Action>(FindUsages)
-nnoremap gri <Action>(GotoImplementation)
-nnoremap grt <Action>(GotoTypeDeclaration)
-nnoremap gO <Action>(FileStructurePopup)
-nnoremap gW <Action>(GotoSymbol)
+nnoremap grd :action GotoDeclaration<CR>
+nnoremap grD :action GotoTypeDeclaration<CR>
+nnoremap grr :action FindUsages<CR>
+nnoremap gri :action GotoImplementation<CR>
+nnoremap grt :action GotoTypeDeclaration<CR>
+nnoremap gO :action FileStructurePopup<CR>
+nnoremap gW :action GotoSymbol<CR>
 
-nnoremap gra <Action>(ShowIntentionActions)
-xnoremap gra <Action>(ShowIntentionActions)
-nnoremap grn <Action>(RenameElement)
-nnoremap <leader>cf <Action>(ReformatCode)
-xnoremap <leader>cf <Action>(ReformatCode)
-nnoremap <leader>cd <Action>(ShowErrorDescription)
-nnoremap <leader>K <Action>(QuickJavaDoc)
+nnoremap gra :action ShowIntentionActions<CR>
+xnoremap gra :action ShowIntentionActions<CR>
+nnoremap grn :action RenameElement<CR>
+nnoremap <leader>cf :action ReformatCode<CR>
+xnoremap <leader>cf :action ReformatCode<CR>
+nnoremap <leader>cd :action ShowErrorDescription<CR>
+nnoremap <leader>K :action QuickJavaDoc<CR>
 
-nnoremap ]d <Action>(GotoNextError)
-nnoremap [d <Action>(GotoPreviousError)
-nnoremap ]e <Action>(GotoNextError)
-nnoremap [e <Action>(GotoPreviousError)
-nnoremap ]w <Action>(GotoNextError)
-nnoremap [w <Action>(GotoPreviousError)
+nnoremap ]d :action GotoNextError<CR>
+nnoremap [d :action GotoPreviousError<CR>
+nnoremap ]e :action GotoNextError<CR>
+nnoremap [e :action GotoPreviousError<CR>
+nnoremap ]w :action GotoNextError<CR>
+nnoremap [w :action GotoPreviousError<CR>
 
 " -----------------------------------------------------------------------------
 " Git / VCS
 " -----------------------------------------------------------------------------
-nnoremap <leader>gg <Action>(ActivateVersionControlToolWindow)
-nnoremap <leader>gG <Action>(ActivateVersionControlToolWindow)
-nnoremap <leader>gl <Action>(Vcs.ShowTabbedFileHistory)
-nnoremap <leader>gL <Action>(Vcs.ShowTabbedFileHistory)
-nnoremap <leader>gf <Action>(Vcs.ShowTabbedFileHistory)
-nnoremap <leader>gb <Action>(Annotate)
-nnoremap <leader>gB <Action>(CopyPaths)
-xnoremap <leader>gB <Action>(CopyPaths)
-nnoremap <leader>gY <Action>(CopyReference)
-xnoremap <leader>gY <Action>(CopyReference)
+nnoremap <leader>gg :action Lazygit.Toggle<CR>
+nnoremap <leader>gG :action Lazygit.ToggleCurrentDir<CR>
+nnoremap <leader>gl :action Vcs.ShowTabbedFileHistory<CR>
+nnoremap <leader>gL :action Vcs.ShowTabbedFileHistory<CR>
+nnoremap <leader>gf :action Vcs.ShowTabbedFileHistory<CR>
+nnoremap <leader>gb :action Annotate<CR>
+nnoremap <leader>gB :action CopyPaths<CR>
+xnoremap <leader>gB :action CopyPaths<CR>
+nnoremap <leader>gY :action CopyReference<CR>
+xnoremap <leader>gY :action CopyReference<CR>
 
 " -----------------------------------------------------------------------------
 " Run / terminal / debugging
 " -----------------------------------------------------------------------------
-nnoremap <leader>rr <Action>(Run)
-nnoremap <leader>ra <Action>(ChooseRunConfiguration)
-nnoremap <leader>rt <Action>(ActivateRunToolWindow)
-nnoremap <leader>ft <Action>(ActivateTerminalToolWindow)
-nnoremap <leader>fT <Action>(ActivateTerminalToolWindow)
-nnoremap <C-/> <Action>(ActivateTerminalToolWindow)
+nnoremap <leader>rr :action Run<CR>
+nnoremap <leader>ra :action ChooseRunConfiguration<CR>
+nnoremap <leader>rt :action ActivateRunToolWindow<CR>
+nnoremap <leader>ft :action ActivateTerminalToolWindow<CR>
+nnoremap <leader>fT :action ActivateTerminalToolWindow<CR>
+nnoremap <C-/> :action ActivateTerminalToolWindow<CR>
 
-nnoremap <F5> <Action>(Debug)
-nnoremap <leader>b <Action>(ToggleLineBreakpoint)
+nnoremap <F5> :action Debug<CR>
+nnoremap <leader>db :action ToggleLineBreakpoint<CR>
 
 " -----------------------------------------------------------------------------
 " Quit / misc
 " -----------------------------------------------------------------------------
-nnoremap <leader>qq <Action>(Exit)
-nnoremap <leader>fn <Action>(NewElement)
+nnoremap <leader>qq :action Exit<CR>
+nnoremap <leader>fn :action NewElement<CR>
