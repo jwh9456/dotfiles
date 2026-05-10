@@ -1,0 +1,151 @@
+" IdeaVim config managed by GNU Stow.
+" Install from dotfiles root with: stow ideavim
+"
+" This mirrors the portable parts of the Neovim config:
+" - leader is Space
+" - visual-line movement with j/k
+" - LazyVim-style search/code/git/window groups where IntelliJ has an action
+
+let mapleader = " "
+let maplocalleader = " "
+
+set clipboard+=unnamed
+set ignorecase
+set smartcase
+set number
+set scrolloff=10
+set timeoutlen=300
+set ideajoin
+
+" Built-in IdeaVim plugins. Safe no-ops when a plugin is unavailable.
+set commentary
+set surround
+set multiple-cursors
+
+" -----------------------------------------------------------------------------
+" Movement / editing
+" -----------------------------------------------------------------------------
+nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
+xnoremap <expr> j v:count == 0 ? 'gj' : 'j'
+nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
+xnoremap <expr> k v:count == 0 ? 'gk' : 'k'
+
+nnoremap <Esc> :nohlsearch<CR><Esc>
+inoremap <C-s> <Esc>:w<CR>
+nnoremap <C-s> :w<CR>
+xnoremap <C-s> <Esc>:w<CR>
+xnoremap < <gv
+xnoremap > >gv
+
+" Keep nvim's line-moving muscle memory.
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+xnoremap <A-j> :m '>+1<CR>gv=gv
+xnoremap <A-k> :m '<-2<CR>gv=gv
+
+" Search result centering, like the nvim config.
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" -----------------------------------------------------------------------------
+" Windows / tabs / tool windows
+" -----------------------------------------------------------------------------
+nnoremap <leader>- <Action>(SplitHorizontally)
+nnoremap <leader><Bar> <Action>(SplitVertically)
+nnoremap <leader>wd <Action>(Unsplit)
+nnoremap <leader>ww <C-w>w
+
+nnoremap <S-h> <Action>(PreviousTab)
+nnoremap <S-l> <Action>(NextTab)
+nnoremap [b <Action>(PreviousTab)
+nnoremap ]b <Action>(NextTab)
+nnoremap <leader>bd <Action>(CloseContent)
+nnoremap <leader>bD <Action>(CloseContent)
+nnoremap <leader>bb <Action>(RecentFiles)
+nnoremap <leader><leader> <Action>(Switcher)
+
+nnoremap <leader><Tab>[ <Action>(PreviousTab)
+nnoremap <leader><Tab>] <Action>(NextTab)
+nnoremap <leader><Tab>d <Action>(CloseContent)
+
+" Explorer: mirrors <leader>e / backslash from neo-tree.
+nnoremap <leader>e <Action>(ActivateProjectToolWindow)
+nnoremap <leader>E <Action>(SelectInProjectView)
+nnoremap \ <Action>(SelectInProjectView)
+
+" -----------------------------------------------------------------------------
+" Search group: mirrors Telescope mappings with IntelliJ actions.
+" -----------------------------------------------------------------------------
+nnoremap <leader>sf <Action>(GotoFile)
+nnoremap <leader>ss <Action>(GotoFile)
+nnoremap <leader>sg <Action>(FindInPath)
+nnoremap <leader>sw <Action>(FindUsages)
+xnoremap <leader>sw <Action>(FindUsages)
+nnoremap <leader>s. <Action>(RecentFiles)
+nnoremap <leader>sc <Action>(GotoAction)
+nnoremap <leader>sk <Action>(GotoAction)
+nnoremap <leader>sh <Action>(HelpTopics)
+nnoremap <leader>sS <Action>(GotoSymbol)
+nnoremap <leader>/ <Action>(Find)
+nnoremap <leader>s/ <Action>(FindInPath)
+
+" -----------------------------------------------------------------------------
+" Code / LSP-like navigation
+" -----------------------------------------------------------------------------
+nnoremap grd <Action>(GotoDeclaration)
+nnoremap grD <Action>(GotoTypeDeclaration)
+nnoremap grr <Action>(FindUsages)
+nnoremap gri <Action>(GotoImplementation)
+nnoremap grt <Action>(GotoTypeDeclaration)
+nnoremap gO <Action>(FileStructurePopup)
+nnoremap gW <Action>(GotoSymbol)
+
+nnoremap gra <Action>(ShowIntentionActions)
+xnoremap gra <Action>(ShowIntentionActions)
+nnoremap grn <Action>(RenameElement)
+nnoremap <leader>cf <Action>(ReformatCode)
+xnoremap <leader>cf <Action>(ReformatCode)
+nnoremap <leader>cd <Action>(ShowErrorDescription)
+nnoremap <leader>K <Action>(QuickJavaDoc)
+
+nnoremap ]d <Action>(GotoNextError)
+nnoremap [d <Action>(GotoPreviousError)
+nnoremap ]e <Action>(GotoNextError)
+nnoremap [e <Action>(GotoPreviousError)
+nnoremap ]w <Action>(GotoNextError)
+nnoremap [w <Action>(GotoPreviousError)
+
+" -----------------------------------------------------------------------------
+" Git / VCS
+" -----------------------------------------------------------------------------
+nnoremap <leader>gg <Action>(ActivateVersionControlToolWindow)
+nnoremap <leader>gG <Action>(ActivateVersionControlToolWindow)
+nnoremap <leader>gl <Action>(Vcs.ShowTabbedFileHistory)
+nnoremap <leader>gL <Action>(Vcs.ShowTabbedFileHistory)
+nnoremap <leader>gf <Action>(Vcs.ShowTabbedFileHistory)
+nnoremap <leader>gb <Action>(Annotate)
+nnoremap <leader>gB <Action>(CopyPaths)
+xnoremap <leader>gB <Action>(CopyPaths)
+nnoremap <leader>gY <Action>(CopyReference)
+xnoremap <leader>gY <Action>(CopyReference)
+
+" -----------------------------------------------------------------------------
+" Run / terminal / debugging
+" -----------------------------------------------------------------------------
+nnoremap <leader>rr <Action>(Run)
+nnoremap <leader>ra <Action>(ChooseRunConfiguration)
+nnoremap <leader>rt <Action>(ActivateRunToolWindow)
+nnoremap <leader>ft <Action>(ActivateTerminalToolWindow)
+nnoremap <leader>fT <Action>(ActivateTerminalToolWindow)
+nnoremap <C-/> <Action>(ActivateTerminalToolWindow)
+
+nnoremap <F5> <Action>(Debug)
+nnoremap <leader>b <Action>(ToggleLineBreakpoint)
+
+" -----------------------------------------------------------------------------
+" Quit / misc
+" -----------------------------------------------------------------------------
+nnoremap <leader>qq <Action>(Exit)
+nnoremap <leader>fn <Action>(NewElement)
