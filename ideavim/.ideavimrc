@@ -66,11 +66,17 @@ let g:WhichKeyDesc_search_symbols = "<leader>sS Symbols"
 let g:WhichKeyDesc_code = "<leader>c Code"
 let g:WhichKeyDesc_code_format = "<leader>cf Format"
 let g:WhichKeyDesc_code_diagnostics = "<leader>cd Diagnostics"
+let g:WhichKeyDesc_code_move = "<leader>cm Move refactor"
+let g:WhichKeyDesc_code_refactor = "<leader>cr Refactor"
 let g:WhichKeyDesc_git = "<leader>g Git"
 let g:WhichKeyDesc_git_status = "<leader>gg LazyGit"
 let g:WhichKeyDesc_git_status_current = "<leader>gG LazyGit cwd"
+let g:WhichKeyDesc_git_diff = "<leader>gd Diff current file"
+let g:WhichKeyDesc_git_menu = "<leader>gD VCS menu"
 let g:WhichKeyDesc_git_log = "<leader>gl File history"
+let g:WhichKeyDesc_git_history = "<leader>gh File history"
 let g:WhichKeyDesc_git_blame = "<leader>gb Annotate"
+let g:WhichKeyDesc_git_annotate = "<leader>ga Annotate"
 let g:WhichKeyDesc_git_copy_path = "<leader>gB Copy path"
 let g:WhichKeyDesc_git_copy_reference = "<leader>gY Copy reference"
 let g:WhichKeyDesc_run = "<leader>r Run"
@@ -196,6 +202,8 @@ nnoremap grn :action RenameElement<CR>
 nnoremap <leader>cf :action ReformatCode<CR>
 xnoremap <leader>cf :action ReformatCode<CR>
 nnoremap <leader>cd :action ShowErrorDescription<CR>
+nnoremap <leader>cm :action Move<CR>
+nnoremap <leader>cr :action Refactorings.QuickListPopupAction<CR>
 nnoremap <leader>K :action QuickJavaDoc<CR>
 
 nnoremap ]d :action GotoNextError<CR>
@@ -210,9 +218,13 @@ nnoremap [w :action GotoPreviousError<CR>
 " -----------------------------------------------------------------------------
 nnoremap <leader>gg :action Lazygit.Toggle<CR>
 nnoremap <leader>gG :action Lazygit.ToggleCurrentDir<CR>
+nnoremap <leader>gd :action Compare.SameVersion<CR>
+nnoremap <leader>gD :action Vcs.QuickListPopupAction<CR>
 nnoremap <leader>gl :action Vcs.ShowTabbedFileHistory<CR>
 nnoremap <leader>gL :action Vcs.ShowTabbedFileHistory<CR>
 nnoremap <leader>gf :action Vcs.ShowTabbedFileHistory<CR>
+nnoremap <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
+nnoremap <leader>ga :action Annotate<CR>
 nnoremap <leader>gb :action Annotate<CR>
 nnoremap <leader>gB :action CopyPaths<CR>
 xnoremap <leader>gB :action CopyPaths<CR>
