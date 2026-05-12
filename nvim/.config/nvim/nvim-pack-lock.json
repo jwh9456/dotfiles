@@ -47,6 +47,10 @@
       "rev": "d28a3f70721c79e3c5f6693057ae929f3d9c0a03",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
     },
+    "markview.nvim": {
+      "rev": "dbf74b6db11c1468d5128a38b26b6d99dc7316e9",
+      "src": "https://github.com/OXY2DEV/markview.nvim"
+    },
     "mason-lspconfig.nvim": {
       "rev": "0c2823e0418f3d9230ff8b201c976e84de1cb401",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
