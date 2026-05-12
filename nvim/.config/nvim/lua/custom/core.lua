@@ -2,7 +2,7 @@ vim.loader.enable()
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 vim.o.number = true
 vim.o.mouse = 'a'
