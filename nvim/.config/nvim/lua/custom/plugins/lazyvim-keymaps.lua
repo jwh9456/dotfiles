@@ -113,14 +113,14 @@ local function open_terminal(cwd)
   vim.cmd.startinsert()
 end
 
-local function telescope(name, opts)
+local function fzf(name, opts)
   return function()
-    local ok, builtin = pcall(require, 'telescope.builtin')
+    local ok, fzf_lua = pcall(require, 'fzf-lua')
     if not ok then
-      notify_missing('Telescope')
+      notify_missing('fzf-lua')
       return
     end
-    builtin[name](opts or {})
+    fzf_lua[name](opts or {})
   end
 end
 
@@ -301,10 +301,10 @@ if vim.lsp.inlay_hint then
 end
 
 -- git
-map('n', '<leader>gL', telescope 'git_commits', { desc = 'Git Log cwd' })
+map('n', '<leader>gL', fzf 'git_commits', { desc = 'Git Log cwd' })
 map('n', '<leader>gb', git_blame_line, { desc = 'Git Blame Line' })
-map('n', '<leader>gf', telescope 'git_bcommits', { desc = 'Git Current File History' })
-map('n', '<leader>gl', telescope('git_commits', { cwd = git_root() }), { desc = 'Git Log' })
+map('n', '<leader>gf', fzf 'git_bcommits', { desc = 'Git Current File History' })
+map('n', '<leader>gl', fzf('git_commits', { cwd = git_root() }), { desc = 'Git Log' })
 map({ 'n', 'x' }, '<leader>gB', function() gitbrowse(false) end, { desc = 'Git Browse open' })
 map({ 'n', 'x' }, '<leader>gY', function() gitbrowse(true) end, { desc = 'Git Browse copy' })
 

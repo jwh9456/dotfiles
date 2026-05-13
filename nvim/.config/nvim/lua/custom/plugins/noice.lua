@@ -25,4 +25,4 @@ require('noice').setup {
   },
 }
 
-vim.keymap.set('n', '<leader>sN', '<cmd>Noice telescope<cr>', { desc = 'Search Noice messages' })
+vim.keymap.set('n', '<leader>sN', '<cmd>Noice fzf<cr>', { desc = 'Search Noice messages' })
