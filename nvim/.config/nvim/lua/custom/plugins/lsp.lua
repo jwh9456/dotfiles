@@ -1,5 +1,7 @@
 local function gh(repo) return 'https://github.com/' .. repo end
 
+vim.lsp.set_log_level(vim.log.levels.WARN)
+
 vim.pack.add {
   gh 'j-hui/fidget.nvim',
   gh 'neovim/nvim-lspconfig',
