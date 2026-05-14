@@ -1,6 +1,6 @@
 local function gh(repo) return 'https://github.com/' .. repo end
 
-vim.lsp.set_log_level(vim.log.levels.WARN)
+vim.lsp.set_log_level(vim.log.levels.OFF)
 
 vim.pack.add {
   gh 'j-hui/fidget.nvim',
