@@ -15,14 +15,14 @@ local frappe = require("frappe")
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
-    output   = "DP-5",
+    output   = "desc:HP Inc. HP X27q 6CM1500HHJ",
     mode     = "2560x1440@164.83Hz",
     position = "0x0",
     scale    = "auto",
 })
 
 hl.monitor({
-    output   = "HDMI-A-2",
+    output   = "desc:Dell Inc. DELL S2421HN F17MCH3",
     mode     = "1920x1080@74.97Hz",
     position = "auto",
     scale    = "auto",
