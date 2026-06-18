@@ -1,0 +1,30 @@
+# Destination (WINDOWS side):  C:\Users\<you>\.wslconfig
+# Applies to ALL WSL2 distros. After editing, run `wsl --shutdown` from PowerShell/CMD to apply.
+# Docs: https://learn.microsoft.com/windows/wsl/wsl-config#wslconfig
+#
+# NOTE: this folder is NOT stowed. It lives on the Windows filesystem / in /etc,
+# so it is version-controlled here for history only and copied into place by hand.
+
+[wsl2]
+# Cap the VM's RAM / CPU. Adjust to your machine; omit to let WSL use up to ~50% RAM / all cores.
+memory=8GB
+processors=4
+
+# Mirrored networking: WSL shares the Windows network stack (better VPN / localhost / inbound).
+# Requires Windows 11 22H2+.
+networkingMode=mirrored
+dnsTunneling=true
+autoProxy=true
+firewall=true
+
+# Shut the VM down after this idle time (ms) to free resources.
+vmIdleTimeout=60000
+
+[experimental]
+# Return freed memory to Windows instead of holding it.
+#   gradual   = reclaim slowly while idle
+#   dropcache = drop the page cache on idle
+autoMemoryReclaim=gradual
+
+# Automatically shrink the virtual disk as files are deleted.
+sparseVhd=true

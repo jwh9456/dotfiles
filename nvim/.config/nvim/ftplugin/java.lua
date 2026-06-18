@@ -17,7 +17,7 @@ local workspace_dir = vim.fn.stdpath 'data' .. '/jdtls-workspace/' .. project_na
 local jdtls_cmd = 'jdtls'
 
 if vim.fn.executable(jdtls_cmd) ~= 1 then
-  vim.notify('jdtls is not installed. Run brew install jdtls.', vim.log.levels.WARN)
+  vim.notify('jdtls not found on PATH. Install via :Mason or your package manager (e.g. yay -S jdtls).', vim.log.levels.WARN)
   return
 end
 

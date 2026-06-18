@@ -74,8 +74,6 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
     git
     fzf
-    zsh-autosuggestions
-    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -108,15 +106,12 @@ source $ZSH/oh-my-zsh.sh
 
 fastfetch -c $HOME/.config/fastfetch/configs/config-default.jsonc --logo small
 
-export PATH=/opt/homebrew/bin:$PATH
-
 alias vi="nvim"
 alias vim="nvim"
 alias oc="opencode"
-alias cf="open -a Firefox 'https://order.ajdlabs.kr/order'"
+alias cf="wslview 'https://order.ajdlabs.kr/order'"
 alias lg="lazygit"
 
-#source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 export TERM=xterm-256color
 export EDITOR=nvim
 export VISUAL=nvim
@@ -135,5 +130,12 @@ prompt_dir() {
 source "$HOME/.zshrc.zoxide"
 export XDG_CONFIG_HOME="$HOME/.config"
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
-export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+
+# sdkman (JDK / build-tool version manager) — keep near the end of the file
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+
+# zsh plugins from Arch system packages; syntax-highlighting must be sourced last
+[[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+[[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

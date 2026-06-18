@@ -24,7 +24,18 @@ vim.o.confirm = true
 
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
-vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
+vim.schedule(function()
+  vim.o.clipboard = 'unnamedplus'
+  -- WSL: route the system clipboard through win32yank so yank/paste sync with Windows.
+  if vim.fn.executable 'win32yank.exe' == 1 then
+    vim.g.clipboard = {
+      name = 'win32yank',
+      copy = { ['+'] = 'win32yank.exe -i --crlf', ['*'] = 'win32yank.exe -i --crlf' },
+      paste = { ['+'] = 'win32yank.exe -o --lf', ['*'] = 'win32yank.exe -o --lf' },
+      cache_enabled = 0,
+    }
+  end
+end)
 
 vim.diagnostic.config {
   update_in_insert = false,
