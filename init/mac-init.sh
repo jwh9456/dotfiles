@@ -36,3 +36,9 @@ else
   rm -rf "$TMUX_CATPPUCCIN_DIR"
   git clone -b v2.3.0 https://github.com/catppuccin/tmux.git "$TMUX_CATPPUCCIN_DIR"
 fi
+
+# configure sesh (tmux session manager) — fzf + zoxide 기반 세셔나이저
+# 프리뷰에 lsd 트리 사용. arch에서는 `yay -S sesh-bin` + `pacman -S lsd`
+brew install sesh
+brew install lsd
+stow -v -R sesh
