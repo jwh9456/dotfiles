@@ -38,7 +38,7 @@ if [ ! -d "$HOME/.sdkman" ]; then
 fi
 
 # --- stow the dotfiles (DE/WM and wsl/ are intentionally excluded) ---
-stow -v -R zsh nvim tmux yazi lazygit fastfetch opencode
+stow -v -R zsh nvim tmux yazi lazygit fastfetch opencode sesh
 
 echo
 echo "Done. Remaining manual steps:"
