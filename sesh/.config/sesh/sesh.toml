@@ -1,0 +1,25 @@
+#:schema https://github.com/joshmedeski/sesh/raw/main/sesh.schema.json
+
+# picker에서 숨기고 싶은 임시 세션이 있으면 사용
+# blacklist = ["scratch"]
+
+# 모든 세션 공통 프리뷰 (eza 미설치 → lsd 트리)
+[default_session]
+preview_command = "lsd --tree --depth 2 --color=always --icon always {}"
+
+# 자주 쓰는 고정 세션 (zoxide 빈도와 무관하게 ^g config 그룹에 항상 노출)
+[[session]]
+name = "dotfiles"
+path = "~/dotfiles"
+
+# ── 선언적으로 늘려갈 자리 (지금은 빈 셸 진입이라 주석) ──
+# 특정 프로젝트 그룹만 자동 명령 실행:
+# [[wildcard]]
+# pattern = "~/Desktop/workspace/*"
+# startup_command = "nvim"
+#
+# 다중 윈도우 레이아웃이 필요한 프로젝트:
+# [[session]]
+# name = "platform-server"
+# path = "~/Desktop/workspace/platform-server"
+# windows = ["editor", "server"]
