@@ -1,6 +1,8 @@
 local function gh(repo) return 'https://github.com/' .. repo end
 
-vim.lsp.set_log_level(vim.log.levels.OFF)
+-- ERROR 레벨: DEBUG rpc 덤프 스팸은 안 남기고 실제 에러만 기록한다.
+-- (set_log_level은 0.13에서 제거 예정이라 vim.lsp.log.set_level 사용)
+vim.lsp.log.set_level(vim.log.levels.ERROR)
 
 vim.pack.add {
   gh 'j-hui/fidget.nvim',
@@ -55,12 +57,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+-- kotlin_lsp은 Homebrew(JetBrains/utils/kotlin-lsp)로 설치하므로 mason 설치 대상에서 제외한다.
+-- 설정은 kotlin.lua에서 하고, 여기서는 활성화만 한다(아래 vim.lsp.enable 참고).
 local servers = {
-  kotlin_lsp = {
-    flags = {
-      debounce_text_changes = 0,
-    },
-  },
   lua_ls = {
     on_init = function(client)
       client.server_capabilities.documentFormattingProvider = false
@@ -105,3 +104,7 @@ for name, server in pairs(servers) do
   vim.lsp.config(name, server)
   vim.lsp.enable(name)
 end
+
+-- brew로 설치한 kotlin_lsp 활성화. 설정/cmd는 kotlin.lua에서 정의한다.
+-- (nvim-lspconfig가 rtp에 올라온 뒤 활성화해야 하므로 servers 루프와 같은 위치에서 처리)
+vim.lsp.enable 'kotlin_lsp'
