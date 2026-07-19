@@ -1,28 +1,15 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": [
-    "opencode-gemini-auth@latest"
-  ],
+  "plugin": ["opencode-gemini-auth@latest", "@dietrichgebert/ponytail"],
   "formatter": {
     "prettier": {
-      "extensions": [
-        ".js",
-        ".ts",
-        ".jsx",
-        ".tsx"
-      ],
+      "extensions": [".js", ".ts", ".jsx", ".tsx"],
     },
     "ktlint": {
-      "extensions": [
-        ".kt",
-        ".kts"
-      ],
+      "extensions": [".kt", ".kts"],
     },
     "terraform": {
-      "extensions": [
-        ".tf",
-        ".tfvars"
-      ],
+      "extensions": [".tf", ".tfvars"],
     },
   },
   "permission": {
@@ -35,17 +22,22 @@
   },
   "agent": {
     "build": {
-      "disable": true
+      "disable": true,
     },
     "plan": {
-      "disable": true
+      "disable": true,
     },
   },
   "mcp": {
     "notion": {
       "type": "remote",
       "url": "https://mcp.notion.com/mcp",
-      "oauth": {}
-    }
+      "oauth": {},
+    },
+    "linear": {
+      "type": "remote",
+      "url": "https://mcp.linear.app/mcp",
+      "oauth": {},
+    },
   },
 }
