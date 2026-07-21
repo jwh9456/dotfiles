@@ -3,7 +3,9 @@ base-devel
 btop
 fastfetch
 fd
+fontconfig
 fzf
+gnu-free-fonts
 git
 github-cli
 httpie
@@ -12,12 +14,13 @@ lsd
 neovim
 nodejs
 npm
+opendesktop-fonts
 sesh-bin
 stow
 tmux
+ttf-liberation
 unzip
 wslu
-yay
 yazi
 zip
 zoxide

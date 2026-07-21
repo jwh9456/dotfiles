@@ -74,6 +74,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
     git
     fzf
+    tmux
 )
 
 source $ZSH/oh-my-zsh.sh
